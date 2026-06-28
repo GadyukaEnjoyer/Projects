@@ -51,7 +51,10 @@ pip install -r requirements.txt
 
 ## Инфраструктура ClearML
 
-1. Выполнить `clearml-init` , перейти по ссылке, зарегистрироваться и указать credentials сервера (по инструкции в терминале).
+1. Выполнить команду `clearml_init`, перейти по ссылке, зарегистрироваться и указать credentials сервера (по инструкции в терминале).
+```powershell
+clearml-init
+``` 
 2. Запустить агента на очереди `students`:
 
 ```powershell
