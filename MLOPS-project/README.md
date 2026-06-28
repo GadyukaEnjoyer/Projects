@@ -182,7 +182,6 @@ Invoke-RestMethod -Method Post `
 Поднимаем интерфейс через Streamlit
 
 ```powershell
-uvicorn inference_api:app --host 127.0.0.1 --port 8000
 streamlit run streamlit_app.py
 ```
 
