@@ -14,7 +14,7 @@
 | 1 | `ingest_dataset.py` | Kaggle → CSV → ClearML Dataset |
 | 2 | `train.py` | Обучение через Agent, метрики, артефакты |
 | 3 | `register_model.py` | Публикация модели в Model Registry |
-| 4 | `inference_api.py` | FastAPI endpoint, модель из Registry |
+| 4 | `inference_serving.py` | HTTP inference сервер (FastAPI) |
 | 5 | `streamlit_app.py` | UI с помощью Streamlit |
 
 ### Структура репозитория
@@ -51,10 +51,7 @@ pip install -r requirements.txt
 
 ## Инфраструктура ClearML
 
-1. Выполнить команду `clearml_init`, перейти по ссылке, зарегистрироваться и указать credentials сервера (по инструкции в терминале).
-```powershell
-clearml-init
-``` 
+1. Выполнить `clearml-init` , перейти по ссылке, зарегистрироваться и указать credentials сервера (по инструкции в терминале).
 2. Запустить агента на очереди `students`:
 
 ```powershell
@@ -132,7 +129,7 @@ python register_model.py
 
 ## Inference Endpoint
 
-Подставьте **Model ID** из Registry в `inference_api.py` (строка 11):
+Подставьте **Model ID** из Registry в `inference_serving.py` (строка 11):
 
 ```python
 REGISTRY_MODEL_ID = "ваш_model_id"
@@ -141,8 +138,18 @@ REGISTRY_MODEL_ID = "ваш_model_id"
 Запуск сервиса:
 
 ```powershell
-uvicorn inference_api:app --host 127.0.0.1 --port 8000
+python inference_serving.py
 ```
+Сервер запустится на http://127.0.0.1:8000 со следующими эндпоинтами:
+
+- GET / — информация о сервисе
+
+- GET /health — проверка статуса
+
+- POST /predict — предсказание тональности
+
+- GET /docs — Swagger документация
+
 
 Health-check:
 

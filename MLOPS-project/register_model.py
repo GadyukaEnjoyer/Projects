@@ -1,7 +1,7 @@
 from clearml import OutputModel, Task
 
 # --- В BEST_TASK_ID вставляем значение лучшего эксперимента (именно TASK_ID - можно посмотреть в выдаче train.py) ---
-BEST_TASK_ID = "68d5598295ca4d4581ef68b3e68b471a"
+BEST_TASK_ID = "c4d38c0df3f446c896bb4ea81b91033d"
 
 MODEL_NAME = "social-sentiment-classifier"
 MODEL_TAGS = ["social-media", "tfidf", "logistic-regression", "binary-sentiment"]

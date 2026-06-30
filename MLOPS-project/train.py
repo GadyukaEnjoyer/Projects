@@ -17,7 +17,7 @@ from sklearn.metrics import (
 from sklearn.model_selection import train_test_split
 
 # --- В DATASET_ID вставляем значение из ClearML - можно посмотреть в выдаче после ingest_dataset.py ---
-DATASET_ID = "372852b8aab44fa48361609fdcad78e3"
+DATASET_ID = "9ef351b3f114498bb9ea00494afa04a1"
 REMOTE_QUEUE = "students"
 PROJECT = "social-media-sentiment"
 
